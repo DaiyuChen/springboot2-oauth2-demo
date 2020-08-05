@@ -1,0 +1,57 @@
+server:
+  port: 9000
+  servlet:
+    context-path: /
+    session:
+      cookie:
+        path: /
+
+spring:
+  mvc:
+    static-path-pattern: /static/**
+  application:
+    name: Auth Server
+  redis:
+    host: 127.0.0.1
+    password:
+    database: 0
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://127.0.0.1:3306/oauth2?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  jackson:
+    default-property-inclusion: non_null
+
+  # 指定spring session的存储类型为Redis
+  session:
+    store-type: redis
+
+  # Freemarker config
+  freemarker:
+    # HttpServletRequest的属性是否可以覆盖controller中model的同名项
+    allow-request-override: false
+    # HttpSession的属性是否可以覆盖controller中model的同名项
+    allow-session-override: false
+    # 是否开启缓存
+    cache: false
+    # 模板文件编码
+    charset: UTF-8
+    # 是否检查模板位置
+    check-template-location: true
+    # Content-Type的值
+    content-type: text/html
+    # 是否将HttpServletRequest中的属性添加到Model中
+    expose-request-attributes: false
+    # 是否将HttpSession中的属性添加到Model中
+    expose-session-attributes: false
+    # 模板文件后缀
+    suffix: .html
+    # 模板文件位置
+    template-loader-path: classpath:/templates/
+

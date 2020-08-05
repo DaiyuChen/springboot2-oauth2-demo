@@ -1,0 +1,12 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: Resource Server
+
+security:
+  oauth2:
+    resource:
+      check-token-uri: http://localhost:9001/oauth/check_token
+
