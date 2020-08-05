@@ -1,9 +1,9 @@
-##介绍
+## 介绍
 此项目是一个开源的基于Oauth2协议的认证、授权系统Demo
 
 ### 目录结构
 ```
-├─auth-server          认证服务(实现了session共享, 可以多节点部署)
+├─auth-server          认证服务(基于redis实现session共享, 可以多节点部署)
 ├─auth-client          Oauth client服务(未实现)
 ├─resource-server      资源服务
 ```
@@ -11,10 +11,10 @@
 1. 启动认证服务器 auth-server
 2. 启动资源服务器 resource-server
 ```
-测试client
+测试客户(Client)
 test / 123456
 
-测试账号
+测试用户(User)
 admin / 123456
 ```
 
