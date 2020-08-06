@@ -7,9 +7,22 @@
 ├─auth-client          Oauth client服务(未实现)
 ├─resource-server      资源服务
 ```
-### 测试
-1. 启动认证服务器 auth-server
-2. 启动资源服务器 resource-server
+### 环境需求
+- JDK8+
+- Mysql5+
+- Redis
+
+### 调整配置
+需要修改auth-server/src/main/resources/application.yml中数据库和redis配置
+
+### 测试项目
+1. 创建数据库oauth2
+2. 运行数据库初始化脚本
+   ```
+   source  auth-server/src/config/init.sql
+   ``` 
+3. 启动认证服务器 auth-server(按照正常spring boot项目启动方式启动)
+4. 启动资源服务器 resource-server(按照正常spring boot项目启动方式启)
 ```
 测试客户(Client)
 test / 123456

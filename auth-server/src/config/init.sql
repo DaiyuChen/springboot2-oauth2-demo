@@ -46,5 +46,5 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-INSERT INTO `oauth_client_details` VALUES ('test', null, '$2a$10$kJRyqJa9vjb9CEs2ewHLLeU/hH5iVBQpi1Nm8nQbMrL5nsoHWJ0qO', 'ALL,AUTH,USER,GOODS,ORDER', 'authorization_code,client_credentials,password,refresh_token', 'http://localhost:8000/auth/callback', 'ROLE_USER', '1800', '86400', null, 'false');
+INSERT INTO `oauth_client_details` VALUES ('test', null, '$2a$10$kJRyqJa9vjb9CEs2ewHLLeU/hH5iVBQpi1Nm8nQbMrL5nsoHWJ0qO', 'ALL,USER,ORDER', 'authorization_code,client_credentials,password,refresh_token', 'http://localhost:8000/auth/callback', 'ROLE_USER', '1800', '86400', null, 'false');
 INSERT INTO `user` VALUES (1,'\0','2020-08-05 11:13:20.566000','9d656609-d6c9-11ea-aed9-01b93a686bc2','2020-08-05 11:13:20.585000',0,'ADMIN,USER,API','$2a$10$JtmJ70AMzSvira/LT2dVAuWS4OF/NM0BWIWY8rOdtjO5qwwybzV.2','admin');
