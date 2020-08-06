@@ -22,6 +22,7 @@ public class UserRepositoryTest {
 
     @Autowired
     private UserRepository userRepository;
+
     private static final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Test

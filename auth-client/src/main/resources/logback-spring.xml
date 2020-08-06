@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%t] %-5level %logger{36} - %msg%n</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+    <!--default-->
+    <logger name="com.daiyu.spring.boot.oauth2.auth.client" level="INFO" additivity="false">
+        <appender-ref ref="console" />
+    </logger>
+
+    <logger name="org.springframework" level="WARN" additivity="false">
+        <appender-ref ref="console" />
+    </logger>
+
+    <logger name="org.hibernate" level="INFO" additivity="false">
+        <appender-ref ref="console" />
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="console"/>
+    </root>
+    <!--default-->
+
+    <springProfile name="dev">
+        <logger name="com.daiyu.spring.boot.oauth2.auth.server" level="INFO" additivity="false">
+            <appender-ref ref="console" />
+        </logger>
+
+        <logger name="org.springframework" level="WARN" additivity="false">
+            <appender-ref ref="console" />
+        </logger>
+
+        <logger name="org.hibernate" level="INFO" additivity="false">
+            <appender-ref ref="console" />
+        </logger>
+
+        <root level="INFO">
+            <appender-ref ref="console"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="prod">
+        <logger name="com.daiyu.spring.boot.oauth2.auth.server" level="INFO" additivity="false">
+            <appender-ref ref="console" />
+        </logger>
+
+        <logger name="org.springframework" level="WARN" additivity="false">
+            <appender-ref ref="console" />
+        </logger>
+
+        <logger name="org.hibernate" level="INFO" additivity="false">
+            <appender-ref ref="console" />
+        </logger>
+
+        <root level="INFO">
+            <appender-ref ref="console"/>
+        </root>
+    </springProfile>
+</configuration>
+

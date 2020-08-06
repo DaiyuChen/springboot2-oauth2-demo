@@ -31,15 +31,33 @@ import org.springframework.security.oauth2.provider.token.ResourceServerTokenSer
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
-    @Value("${security.oauth2.resource.check-token-uri}")
     private String checkTokenUri;
+
+    private String clientId;
+
+    private String clientSecret;
+
+    @Value("${security.oauth2.resource.check-token-uri}")
+    public void setCheckTokenUri(String checkTokenUri) {
+        this.checkTokenUri = checkTokenUri;
+    }
+
+    @Value("${security.oauth2.client.client-id}")
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
+
+    @Value("${security.oauth2.client.client-secret}")
+    public void setClientSecret(String clientSecret) {
+        this.clientSecret = clientSecret;
+    }
 
     @Bean
     @Primary
     public ResourceServerTokenServices tokenServices() {
         RemoteTokenServices tokenServices = new RemoteTokenServices();
-        tokenServices.setClientId("test");
-        tokenServices.setClientSecret("123456");
+        tokenServices.setClientId(clientId);
+        tokenServices.setClientSecret(clientSecret);
         tokenServices.setCheckTokenEndpointUrl(checkTokenUri);
         return tokenServices;
     }
@@ -60,5 +78,4 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         http.requestMatchers().antMatchers("/api/**")
                 .and().authorizeRequests().antMatchers("/api/**").access("hasRole('ROLE_API')");
     }
-
 }
