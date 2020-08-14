@@ -14,6 +14,7 @@ package com.daiyu.spring.boot.oauth2.auth.server.config;
 import com.daiyu.spring.boot.oauth2.auth.server.CacheConstants;
 import com.daiyu.spring.boot.oauth2.auth.server.SecurityConstants;
 import com.daiyu.spring.boot.oauth2.auth.server.entity.UserDetailsImpl;
+import com.daiyu.spring.boot.oauth2.auth.server.service.impl.OAuthClientDetailsService;
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -49,13 +50,13 @@ public class AuthenticationServerConfiguration extends AuthorizationServerConfig
 
     private final RedisConnectionFactory redisConnectionFactory;
 
-    private final PasswordEncoder passwordEncoder;
+    private final OAuthClientDetailsService oAuthClientDetailsService;
 
     @Autowired
-    public AuthenticationServerConfiguration(HikariDataSource dataSource, RedisConnectionFactory redisConnectionFactory, PasswordEncoder passwordEncoder) {
+    public AuthenticationServerConfiguration(HikariDataSource dataSource, RedisConnectionFactory redisConnectionFactory, OAuthClientDetailsService oAuthClientDetailsService) {
         this.dataSource = dataSource;
         this.redisConnectionFactory = redisConnectionFactory;
-        this.passwordEncoder = passwordEncoder;
+        this.oAuthClientDetailsService = oAuthClientDetailsService;
     }
 
     @Bean
@@ -91,7 +92,8 @@ public class AuthenticationServerConfiguration extends AuthorizationServerConfig
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         // oauth_client_details
-        clients.jdbc(dataSource).passwordEncoder(passwordEncoder);
+        clients.withClientDetails(oAuthClientDetailsService);
+//        clients.jdbc(dataSource).passwordEncoder(passwordEncoder);
     }
 
 

@@ -9,11 +9,12 @@
  * it only in accordance with the terms of the license agreement you
  * entered into with Tianbao Travel Ltd.
  */
-package com.daiyu.spring.boot.oauth2.auth.server.service;
+package com.daiyu.spring.boot.oauth2.auth.server.service.impl;
 
 import com.daiyu.spring.boot.oauth2.auth.server.entity.UserDetailsImpl;
 import com.daiyu.spring.boot.oauth2.auth.server.entity.UserEntity;
 import com.daiyu.spring.boot.oauth2.auth.server.repository.UserRepository;
+import com.daiyu.spring.boot.oauth2.auth.server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

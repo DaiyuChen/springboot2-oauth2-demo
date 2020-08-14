@@ -10,8 +10,9 @@ security:
     client:
       client-id: test
       client-secret: 123456
+      scope: TEST,USER,ORDER
     resource:
-      check-token-uri: http://localhost:9001/oauth/check_token
-      token-info-uri:  http://localhost:9001/oauth/check_token
+      check-token-uri: http://localhost:9000/oauth/check_token
+      token-info-uri:  http://localhost:9000/oauth/check_token
 
 

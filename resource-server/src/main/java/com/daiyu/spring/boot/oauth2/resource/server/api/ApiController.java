@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ApiController {
 
     @GetMapping("/test")
+//    @PreAuthorize("#oauth2.hasScope('TEST') and hasRole('ROLE_API')")
     @PreAuthorize("hasRole('ROLE_API')")
     @ResponseBody
     public String test() {

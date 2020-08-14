@@ -76,6 +76,6 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 //                .antMatchers("/api/**").access("#oauth2.hasScope('AUTH')");
 
         http.requestMatchers().antMatchers("/api/**")
-                .and().authorizeRequests().antMatchers("/api/**").access("hasRole('ROLE_API')");
+                .and().authorizeRequests().antMatchers("/api/**").access("#oauth2.hasScope('TEST') and hasRole('ROLE_API')");
     }
 }
